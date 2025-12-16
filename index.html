@@ -54,31 +54,82 @@
 <li><p>“Works on my machine” syndrome</p></li>
 <li><p>Different environment for local vs CI</p></li>
 <li><p>Hard-to-reproduce builds</p></li>
+<li><p>TODO: Check my slides, something about too many images or harder
+to update</p></li>
 </ul>
 </section>
 <section class="slide level1">
 
 <h2 id="what-is-pixi">What is Pixi?</h2>
-<p>Fast, modern package &amp; environment manager</p>
-<p>Built on Conda ecosystem (cross-platform)</p>
-<p>One config for:</p>
-<p>Dependencies</p>
-<p>Tasks</p>
-<p>Environments</p>
-<p>Works the same locally and in CI/CD</p>
+<ul>
+<li><p>Fast, modern package &amp; environment manager</p></li>
+<li><p>Built on Conda ecosystem (cross-platform)</p></li>
+<li><p>One config for:</p>
+<ul>
+<li><p>Dependencies</p></li>
+<li><p>Tasks</p></li>
+<li><p>Environments</p></li>
+<li><p>Works the same locally and in CI/CD</p></li>
+</ul></li>
+</ul>
 </section>
 <section class="slide level1">
 
-<h2 id="test-code">Test code</h2>
-<p>install</p>
+<h2 id="installation">Installation</h2>
+<p>Linux</p>
 <pre><code>curl -fsSL https://pixi.sh/install.sh | bash</code></pre>
-<p>install</p>
+<p>Windows</p>
+<pre><code>irm -useb https://pixi.sh/install.ps1 | iex</code></pre>
 </section>
-<section id="test-code-2" class="slide level1">
-<h1>Test code 2</h1>
-<p>install</p>
-<pre><code>curl -fsSL https://pixi.sh/install.sh | bash</code></pre>
-<p>install</p>
+<section class="slide level1">
+
+<h2 id="project-setup-demo">Project Setup (Demo)</h2>
+<pre><code>pixi init my-project
+cd my-project
+pixi add python pytest ruff</code></pre>
+<p>Creates:<br />
+<code>pixi.toml</code> – dependencies &amp; tasks<br />
+<code>pixi.lock</code> – fully reproducible builds</p>
+</section>
+<section class="slide level1">
+
+<h2 id="running-tasks">Running Tasks</h2>
+<p>Define tasks once:</p>
+<pre><code>[tasks]
+test = &quot;pytest&quot;
+lint = &quot;ruff .&quot;
+start = &quot;python app.py&quot;</code></pre>
+<p>Run anywhere:</p>
+<pre><code>pixi run test
+pixi run start</code></pre>
+<p>Same commands:</p>
+<ul>
+<li><p>Local dev</p></li>
+<li><p>CI runners</p></li>
+<li><p>Containers</p></li>
+</ul>
+</section>
+<section id="multi-environment-support" class="slide level1">
+<h1>Multi-Environment Support</h1>
+<pre><code>[environments]
+build = [&quot;python&quot;]
+lint = [&quot;ruff&quot;]
+test = [&quot;pytest&quot;]</code></pre>
+<p>Run tasks in environment</p>
+<pre><code>pixi run build</code></pre>
+</section>
+<section id="why-pixi" class="slide level1">
+<h1>Why Pixi?</h1>
+<ul>
+<li>Bruh</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="takeaway">Takeaway</h3>
+<ul>
+<li>Bruh</li>
+</ul>
 </section>
 <section class="slide level1">
 

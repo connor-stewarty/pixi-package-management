@@ -13,40 +13,97 @@ date: December 15, 2025
 
 - Hard-to-reproduce builds
 
+- TODO: Check my slides, something about too many images or harder to update
+
 ---
 
 ## What is Pixi?
 
-Fast, modern package & environment manager
+- Fast, modern package & environment manager
 
-Built on Conda ecosystem (cross-platform)
+- Built on Conda ecosystem (cross-platform)
 
-One config for:
+- One config for:
 
-Dependencies
+    - Dependencies
 
-Tasks
+    - Tasks
 
-Environments
+    - Environments
 
-Works the same locally and in CI/CD
-
----
-
-## Test code
-install
-
-    curl -fsSL https://pixi.sh/install.sh | bash
-
-install
+    - Works the same locally and in CI/CD
 
 ---
 
-# Test code 2
-install
+## Installation
+Linux
 
     curl -fsSL https://pixi.sh/install.sh | bash
 
-install
+
+Windows
+
+    irm -useb https://pixi.sh/install.ps1 | iex
+
+---
+
+## Project Setup (Demo)
+
+    pixi init my-project
+    cd my-project
+    pixi add python pytest ruff
+
+Creates:  
+`pixi.toml` – dependencies & tasks  
+`pixi.lock` – fully reproducible builds
+
+---
+
+## Running Tasks
+
+Define tasks once:
+
+    [tasks]
+    test = "pytest"
+    lint = "ruff ."
+    start = "python app.py"
+
+Run anywhere:
+
+    pixi run test
+    pixi run start
+
+Same commands:
+
+- Local dev
+
+- CI runners
+
+- Containers
+
+--- 
+
+# Multi-Environment Support
+
+    [environments]
+    build = ["python"]
+    lint = ["ruff"]
+    test = ["pytest"]
+
+Run tasks in environment
+
+    pixi run build
+
+---
+
+# Why Pixi?
+
+- Bruh
+
+---
+
+### Takeaway
+
+- Bruh
 
 ---
