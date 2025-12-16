@@ -1,0 +1,4 @@
+{
+    "demoTime.defaultFileType": "yaml",
+    "cmake.sourceDirectory": "/workspaces/pixi-package-management/cpp-greeter",
+}

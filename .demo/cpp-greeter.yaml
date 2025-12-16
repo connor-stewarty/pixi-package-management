@@ -1,0 +1,67 @@
+title: cpp-greeter Pixi Demo
+description: Simple C++ library to show Pixi managing C++ & Python together.
+version: 2
+demos:
+  - title: cpp-greeter-intro
+    description: Show the cpp-greeter intro slide.
+    steps:
+      - action: openSlide
+        path: .demo/slides/cpp-greeter-intro.md
+  - id: demo-mj8jfy8r-iqtk
+    title: Install Pixi
+    steps:
+      - action: executeTerminalCommand
+        command: curl -fsSL https://pixi.sh/install.sh | bash && source ~/.bashrc
+  - title: Initialize Pixi
+    steps:
+      - action: executeTerminalCommand
+        command: pixi init cpp-greeter
+      - action: executeTerminalCommand
+        command: cd cpp-greeter
+  - id: demo-mj8jrj6d-mlus
+    title: Show pixi.toml
+    steps:
+      - action: open
+        path: cpp-greeter/pixi.toml
+  - id: demo-mj8jw5o3-l3lq
+    title: Add dependencies
+    steps:
+      - action: executeTerminalCommand
+        command: pixi add cxx-compiler cmake ninja fmt clang clang-tools --feature deps-build
+      - action: executeTerminalCommand
+        command: pixi add python pytest --feature deps-test
+      - action: highlight
+        path: cpp-greeter/pixi.toml
+        position: '12:22'
+        highlightWholeLine: true
+  - id: demo-mj8kckgt-lhd3
+    title: Add tasks
+    steps:
+      - action: executeTerminalCommand
+        command: pixi task add configure "cmake -S . -B build -G Ninja" --feature tasks-build
+      - action: executeTerminalCommand
+        command: pixi task add build "cmake --build build" --feature tasks-build --depends-on configure
+      - action: executeTerminalCommand
+        command: pixi task add lint "clang-tidy -p build  src/*.cpp" --feature tasks-build
+      - action: executeTerminalCommand
+        command: pixi task add test "pytest -v" --feature tasks-test
+      - action: highlight
+        path: cpp-greeter/pixi.toml
+        position: '24:30'
+        highlightWholeLine: true
+  - id: demo-mj8kvzw6-6fbo
+    title: Add environments
+    steps:
+      - action: insert
+        path: cpp-greeter/pixi.toml
+        content: |
+
+          [environments]
+          build = ["deps-build","tasks-build"]
+          test = ["deps-test","tasks-test"]
+        position: '31:35'
+        highlightWholeLine: true
+      - action: highlight
+        position: '32:34'
+        highlightWholeLine: true
+        path: cpp-greeter/pixi.toml
