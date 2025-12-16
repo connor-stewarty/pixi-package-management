@@ -5,36 +5,48 @@ subtitle: Reproducible environments from laptop → CI/CD
 date: December 15, 2025
 ---
 
-## Handwritten Digit Recognition with a Back-Propagation Network, 1990
+## The Problem
 
-Y. Le Cun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel
+- “Works on my machine” syndrome
 
-a.k.a. LeCun90c
+- Different environment for local vs CI
 
----
-
-## Yann LeCun
-
-![Yann LeCun on Wikipedia](images/lecun.png)
-
-Chief AI Scientist (and several other titles) at Facebook, "founding father of convolutional nets."
+- Hard-to-reproduce builds
 
 ---
 
-## Yann Le Cun vs. Yann LeCun
+## What is Pixi?
 
-> All kinds of badly programmed computers thought that "Le" was my middle name. Even the science citation index knew me as "Y. L. Cun", which is one of the reasons I now spell my name "LeCun".
->
-> From Yann's [Fun Stuff](http://yann.lecun.com/ex/fun/) page
->
-> Also: [Falsehoods Programmers Believe About Names](https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/)
+Fast, modern package & environment manager
+
+Built on Conda ecosystem (cross-platform)
+
+One config for:
+
+Dependencies
+
+Tasks
+
+Environments
+
+Works the same locally and in CI/CD
 
 ---
 
-### The Problem
+## Test code
+install
 
-How to turn handwritten ZIP codes from envelopes into numbers
+    curl -fsSL https://pixi.sh/install.sh | bash
 
-![Examples of original zipcodes from the testing set](images/original.png)
+install
+
+---
+
+# Test code 2
+install
+
+    curl -fsSL https://pixi.sh/install.sh | bash
+
+install
 
 ---
