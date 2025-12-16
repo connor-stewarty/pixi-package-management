@@ -1,0 +1,19 @@
+[workspace]
+authors = ["Connor Stewart <connorstewarty@gmail.com>"]
+channels = ["conda-forge"]
+name = "pixi-package-management"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+
+[feature.deps-slides.dependencies]
+pandoc = "*"
+
+[feature.tasks-slides.tasks]
+build-slides = "pandoc -t revealjs slides.md -o index.html -sV revealjs-url=https://revealjs.com"
+
+[environments]
+slides = ["deps-slides","tasks-slides"]
