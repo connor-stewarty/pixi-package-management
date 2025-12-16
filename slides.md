@@ -1,8 +1,8 @@
 ---
-author: Jonathan Soma
-title: Two Deep Learning Papers
-subtitle: Robustness and Security in ML Systems, Spring 2021
-date: January 19, 2021
+author: Connor Stewart
+title: 'Pixi: Package Management Made Easy'
+subtitle: Reproducible environments from laptop → CI/CD
+date: December 15, 2025
 ---
 
 ## Handwritten Digit Recognition with a Back-Propagation Network, 1990
