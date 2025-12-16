@@ -59,7 +59,7 @@ demos:
           [environments]
           build = ["deps-build","tasks-build"]
           test = ["deps-test","tasks-test"]
-        position: '31:35'
+        position: '31'
         highlightWholeLine: true
       - action: highlight
         position: '32:34'
