@@ -37,9 +37,9 @@ date: December 15, 2025
 
 ## Installation
 Linux
-
-    curl -fsSL https://pixi.sh/install.sh | bash
-
+```bash
+curl -fsSL https://pixi.sh/install.sh | bash
+```
 
 Windows
 
@@ -62,12 +62,12 @@ Creates:
 ## Running Tasks
 
 Define tasks once:
-
-    [tasks]
-    test = "pytest"
-    lint = "ruff ."
-    start = "python app.py"
-
+```toml
+[tasks]
+test = "pytest"
+lint = "ruff ."
+start = "python app.py"
+```
 Run anywhere:
 
     pixi run test
@@ -83,7 +83,7 @@ Same commands:
 
 --- 
 
-# Multi-Environment Support
+## Multi-Environment Support
 
     [environments]
     build = ["python"]
@@ -96,13 +96,13 @@ Run tasks in environment
 
 ---
 
-# Why Pixi?
+## Why Pixi?
 
 - Bruh
 
 ---
 
-### Takeaway
+## Takeaway
 
 - Bruh
 
