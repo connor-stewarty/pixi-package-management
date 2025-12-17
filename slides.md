@@ -101,8 +101,8 @@ pixi run start
 --- 
 
 ## Multi-Environment Support
-```toml
 Combine features (dependencies and tasks) into environments:
+```toml
 [environments]
 build = ["deps-build","tasks-build"]
 lint = ["deps-lint","tasks-lint"]
@@ -124,8 +124,18 @@ pixi run lint
 
 ---
 
+# Demo
+
+---
+
 ## Takeaway
 
 Pixi streamlines reproducibility and automation from local workstations to CI/CD pipelines with one config, one workflow, everywhere
+
+---
+
+## Thank you
+
+Any questions?
 
 ---

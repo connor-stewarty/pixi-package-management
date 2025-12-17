@@ -186,12 +186,12 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="
 </section>
 <section id="multi-environment-support" class="slide level2">
 <h2>Multi-Environment Support</h2>
+<p>Combine features (dependencies and tasks) into environments:</p>
 <div class="sourceCode" id="cb7"><pre
-class="sourceCode toml"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Combine</span> <span class="dt">features</span> <span class="er">(</span><span class="dt">dependencies</span> <span class="dt">and</span> <span class="dt">tasks</span><span class="er">)</span> <span class="dt">into</span> <span class="dt">environments</span><span class="er">:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">[environments]</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">build</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-build&quot;</span><span class="op">,</span><span class="st">&quot;tasks-build&quot;</span><span class="op">]</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">lint</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-lint&quot;</span><span class="op">,</span><span class="st">&quot;tasks-lint&quot;</span><span class="op">]</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-test&quot;</span><span class="op">,</span><span class="st">&quot;tasks-test&quot;</span><span class="op">]</span></span></code></pre></div>
+class="sourceCode toml"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[environments]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">build</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-build&quot;</span><span class="op">,</span><span class="st">&quot;tasks-build&quot;</span><span class="op">]</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">lint</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-lint&quot;</span><span class="op">,</span><span class="st">&quot;tasks-lint&quot;</span><span class="op">]</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-test&quot;</span><span class="op">,</span><span class="st">&quot;tasks-test&quot;</span><span class="op">]</span></span></code></pre></div>
 <p>Tasks run in environments</p>
 <div class="sourceCode" id="cb8"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run lint</span></code></pre></div>
@@ -204,15 +204,27 @@ class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="
 <li><p>Same workflow from laptop → pipeline</p></li>
 </ul>
 </section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="demo" class="title-slide slide level1">
+<h1>Demo</h1>
+
+</section>
 <section id="takeaway" class="slide level2">
 <h2>Takeaway</h2>
 <p>Pixi streamlines reproducibility and automation from local
 workstations to CI/CD pipelines with one config, one workflow,
 everywhere</p>
 </section>
+<section id="thank-you" class="slide level2">
+<h2>Thank you</h2>
+<p>Any questions?</p>
+</section>
 <section class="slide level2">
 
-</section>
+</section></section>
     </div>
   </div>
 

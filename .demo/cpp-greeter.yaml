@@ -74,3 +74,21 @@ demos:
         position: '32:34'
         highlightWholeLine: true
         path: cpp-greeter/pixi.toml
+  - id: demo-mj9kvvm9-9nhn
+    title: Run build
+    steps:
+      - action: executeTerminalCommand
+        command: pixi run build
+        autoExecute: false
+  - id: demo-mj9kwie3-hhui
+    title: Run lint
+    steps:
+      - action: executeTerminalCommand
+        command: pixi run lint
+        autoExecute: false
+  - id: demo-mj9kwsd6-g9f3
+    title: Run test
+    steps:
+      - action: executeTerminalCommand
+        command: pixi run test
+        autoExecute: false
