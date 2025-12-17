@@ -7,13 +7,11 @@ date: December 15, 2025
 
 ## The Problem
 
-- “Works on my machine” syndrome
+- "Works on my machine (container)" syndrome
 
-- Different environment for local vs CI
+- Different environment/scripts for local vs CI
 
-- Hard-to-reproduce builds
-
-- TODO: Check my slides, something about too many images or harder to update
+- Too many images
 
 ---
 
