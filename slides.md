@@ -2,7 +2,7 @@
 author: Connor Stewart
 title: 'Pixi: Package Management Made Easy'
 subtitle: Reproducible environments from laptop → CI/CD
-date: December 15, 2025
+date: December 17, 2025
 ---
 
 ## The Problem
@@ -119,6 +119,8 @@ pixi run lint
 - Reproducible, faster builds
 
 - Same workflow from laptop → pipeline
+
+- No images or admin required
 
 ---
 
