@@ -31,7 +31,21 @@ date: December 15, 2025
 
     - Environments
 
-    - Works the same locally and in CI/CD
+- Works the same locally and in CI/CD
+
+---
+
+## Conda vs Pixi
+
+- Conda "environments" vs Pixi "workspaces"
+
+- Workspace
+
+    - Manage multiple environments and platforms
+
+    - Tasks and dependencies
+
+    - conda-forge & Pypi
 
 ---
 
@@ -42,20 +56,30 @@ curl -fsSL https://pixi.sh/install.sh | bash
 ```
 
 Windows
-
+```powershell
     irm -useb https://pixi.sh/install.ps1 | iex
+```
+---
+
+## Create Workspace
+
+```bash
+pixi init my-project
+```
+
+Creates:  
+`pixi.toml` – dependencies, tasks, environments
 
 ---
 
-## Project Setup (Demo)
+## Add Dependencies
 
-    pixi init my-project
-    cd my-project
-    pixi add python pytest ruff
+```bash
+pixi add numpy pytest ruff
+```
 
 Creates:  
-`pixi.toml` – dependencies & tasks  
-`pixi.lock` – fully reproducible builds
+`pixi.lock` – lock file for fully reproducible builds
 
 ---
 
@@ -68,42 +92,40 @@ test = "pytest"
 lint = "ruff ."
 start = "python app.py"
 ```
-Run anywhere:
-
-    pixi run test
-    pixi run start
-
-Same commands:
-
-- Local dev
-
-- CI runners
-
-- Containers
+Run anywhere (local, CI, container):
+```bash
+pixi run test
+pixi run start
+```
 
 --- 
 
 ## Multi-Environment Support
-
-    [environments]
-    build = ["python"]
-    lint = ["ruff"]
-    test = ["pytest"]
-
-Run tasks in environment
-
-    pixi run build
-
+```toml
+Combine features (dependencies and tasks) into environments:
+[environments]
+build = ["deps-build","tasks-build"]
+lint = ["deps-lint","tasks-lint"]
+test = ["deps-test","tasks-test"]
+```
+Tasks run in environments
+```bash
+pixi run lint
+```
 ---
 
 ## Why Pixi?
 
-- Bruh
+- One tool for deps + tasks
+
+- Reproducible, faster builds
+
+- Same workflow from laptop → pipeline
 
 ---
 
 ## Takeaway
 
-- Bruh
+Pixi streamlines reproducibility and automation from local workstations to CI/CD pipelines with one config, one workflow, everywhere
 
 ---

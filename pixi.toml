@@ -14,6 +14,7 @@ pandoc = "*"
 
 [feature.tasks-slides.tasks]
 build-slides = "pandoc -t revealjs -s -o index.html slides.md -V revealjs-url=https://unpkg.com/reveal.js"
+clean-demo = "rm -rf cpp-greeter/.pixi cpp-greeter/pixi.lock cpp-greeter/pixi.toml"
 
 [environments]
 slides = ["deps-slides","tasks-slides"]

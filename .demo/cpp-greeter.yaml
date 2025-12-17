@@ -7,6 +7,11 @@ demos:
     steps:
       - action: openSlide
         path: .demo/slides/cpp-greeter-intro.md
+  - id: demo-mj9jttek-vgw8
+    title: Show source files
+    steps:
+      - action: open
+        path: cpp-greeter/src/greeter.cpp
   - id: demo-mj8jfy8r-iqtk
     title: Install Pixi
     steps:
@@ -30,6 +35,8 @@ demos:
         command: pixi add cxx-compiler cmake ninja fmt clang clang-tools --feature deps-build
       - action: executeTerminalCommand
         command: pixi add python pytest --feature deps-test
+      - action: executeTerminalCommand
+        command: sleep 1
       - action: highlight
         path: cpp-greeter/pixi.toml
         position: '12:22'
@@ -45,6 +52,8 @@ demos:
         command: pixi task add lint "clang-tidy -p build  src/*.cpp" --feature tasks-build
       - action: executeTerminalCommand
         command: pixi task add test "pytest -v" --feature tasks-test
+      - action: executeTerminalCommand
+        command: sleep 1
       - action: highlight
         path: cpp-greeter/pixi.toml
         position: '24:30'

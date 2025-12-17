@@ -132,7 +132,19 @@ to update</p></li>
 <li><p>Dependencies</p></li>
 <li><p>Tasks</p></li>
 <li><p>Environments</p></li>
+</ul></li>
 <li><p>Works the same locally and in CI/CD</p></li>
+</ul>
+</section>
+<section id="conda-vs-pixi" class="slide level2">
+<h2>Conda vs Pixi</h2>
+<ul>
+<li><p>Conda “environments” vs Pixi “workspaces”</p></li>
+<li><p>Workspace</p>
+<ul>
+<li><p>Manage multiple environments and platforms</p></li>
+<li><p>Tasks and dependencies</p></li>
+<li><p>conda-forge &amp; Pypi</p></li>
 </ul></li>
 </ul>
 </section>
@@ -142,55 +154,61 @@ to update</p></li>
 <div class="sourceCode" id="cb1"><pre
 class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-fsSL</span> https://pixi.sh/install.sh <span class="kw">|</span> <span class="fu">bash</span></span></code></pre></div>
 <p>Windows</p>
-<pre><code>irm -useb https://pixi.sh/install.ps1 | iex</code></pre>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">irm</span> <span class="op">-</span>useb https<span class="op">://</span>pixi<span class="op">.</span><span class="fu">sh</span><span class="op">/</span>install<span class="op">.</span><span class="fu">ps1</span> <span class="op">|</span> <span class="fu">iex</span></span></code></pre></div>
 </section>
-<section id="project-setup-demo" class="slide level2">
-<h2>Project Setup (Demo)</h2>
-<pre><code>pixi init my-project
-cd my-project
-pixi add python pytest ruff</code></pre>
+<section id="create-workspace" class="slide level2">
+<h2>Create Workspace</h2>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> init my-project</span></code></pre></div>
 <p>Creates:<br />
-<code>pixi.toml</code> – dependencies &amp; tasks<br />
-<code>pixi.lock</code> – fully reproducible builds</p>
+<code>pixi.toml</code> – dependencies, tasks, environments</p>
+</section>
+<section id="add-dependencies" class="slide level2">
+<h2>Add Dependencies</h2>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> add numpy pytest ruff</span></code></pre></div>
+<p>Creates:<br />
+<code>pixi.lock</code> – lock file for fully reproducible builds</p>
 </section>
 <section id="running-tasks" class="slide level2">
 <h2>Running Tasks</h2>
 <p>Define tasks once:</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode toml"><code class="sourceCode toml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[tasks]</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="st">&quot;pytest&quot;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">lint</span> <span class="op">=</span> <span class="st">&quot;ruff .&quot;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dt">start</span> <span class="op">=</span> <span class="st">&quot;python app.py&quot;</span></span></code></pre></div>
-<p>Run anywhere:</p>
-<pre><code>pixi run test
-pixi run start</code></pre>
-<p>Same commands:</p>
-<ul>
-<li><p>Local dev</p></li>
-<li><p>CI runners</p></li>
-<li><p>Containers</p></li>
-</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode toml"><code class="sourceCode toml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[tasks]</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="st">&quot;pytest&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">lint</span> <span class="op">=</span> <span class="st">&quot;ruff .&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dt">start</span> <span class="op">=</span> <span class="st">&quot;python app.py&quot;</span></span></code></pre></div>
+<p>Run anywhere (local, CI, container):</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run test</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run start</span></code></pre></div>
 </section>
 <section id="multi-environment-support" class="slide level2">
 <h2>Multi-Environment Support</h2>
-<pre><code>[environments]
-build = [&quot;python&quot;]
-lint = [&quot;ruff&quot;]
-test = [&quot;pytest&quot;]</code></pre>
-<p>Run tasks in environment</p>
-<pre><code>pixi run build</code></pre>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode toml"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Combine</span> <span class="dt">features</span> <span class="er">(</span><span class="dt">dependencies</span> <span class="dt">and</span> <span class="dt">tasks</span><span class="er">)</span> <span class="dt">into</span> <span class="dt">environments</span><span class="er">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">[environments]</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">build</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-build&quot;</span><span class="op">,</span><span class="st">&quot;tasks-build&quot;</span><span class="op">]</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">lint</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-lint&quot;</span><span class="op">,</span><span class="st">&quot;tasks-lint&quot;</span><span class="op">]</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="dt">test</span> <span class="op">=</span> <span class="op">[</span><span class="st">&quot;deps-test&quot;</span><span class="op">,</span><span class="st">&quot;tasks-test&quot;</span><span class="op">]</span></span></code></pre></div>
+<p>Tasks run in environments</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> run lint</span></code></pre></div>
 </section>
 <section id="why-pixi" class="slide level2">
 <h2>Why Pixi?</h2>
 <ul>
-<li>Bruh</li>
+<li><p>One tool for deps + tasks</p></li>
+<li><p>Reproducible, faster builds</p></li>
+<li><p>Same workflow from laptop → pipeline</p></li>
 </ul>
 </section>
 <section id="takeaway" class="slide level2">
 <h2>Takeaway</h2>
-<ul>
-<li>Bruh</li>
-</ul>
+<p>Pixi streamlines reproducibility and automation from local
+workstations to CI/CD pipelines with one config, one workflow,
+everywhere</p>
 </section>
 <section class="slide level2">
 
