@@ -11,7 +11,7 @@ date: December 17, 2025
 
 - Different environment/scripts for local vs CI
 
-- Too many images
+- Too many images, slow to iterate
 
 ---
 
@@ -55,7 +55,7 @@ curl -fsSL https://pixi.sh/install.sh | bash
 
 Windows
 ```powershell
-    irm -useb https://pixi.sh/install.ps1 | iex
+irm -useb https://pixi.sh/install.ps1 | iex
 ```
 ---
 
